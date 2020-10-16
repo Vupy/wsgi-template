@@ -1,0 +1,13 @@
+[Unit]
+Description=<DESCRIPTION>
+Requires=<SOCKET_NAME.socket>
+After=network.target
+
+[Service]
+User=<USER>
+Group=<GROUP>
+WorkingDirectory=<PROJECT_DIR>
+ExecStart=/bin/bash -c '<ENV_DIR>/gunicorn --access-logfile <LOG_DIR>/log.log --error-logfile <LOG_DIR>/log_err.log --workers 2 --bind unix:/run/<SOCK_NAME>.sock <PROJECT_APP>.wsgi:application'
+
+[Install]
+WantedBy=multi-user.target
