@@ -1,0 +1,13 @@
+[Unit]
+Description=<DESCRIPTION>
+Requires=<SOCKET_NAME>.socket
+After=network.target
+
+[Service]
+User=<USER>
+Group=<GROUP>
+WorkingDirectory=<PROJECT_DIR>
+ExecStart=/bin/bash -c '<ENV_DIR>/uvicorn <PROJECT_DIR_WITH_DOTS>.<MAIN_FILE_NAME>:<MAIN_APP> --port <APP_PORT> --host <APP_HOST>'
+
+[Install]
+WantedBy=multi-user.target

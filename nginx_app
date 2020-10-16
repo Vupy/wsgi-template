@@ -1,0 +1,13 @@
+server {
+    server_name <DOMAIN>;
+    client_max_body_size 100M;
+
+    location / {
+        include proxy_params;
+        proxy_pass <SOCK_OR_LINK>;
+    }
+}
+
+# hard link nginx 
+
+# ln -s /etc/nginx/sites-available/ste_api /etc/nginx/sites-enabled/

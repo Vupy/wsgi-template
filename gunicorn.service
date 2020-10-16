@@ -1,6 +1,6 @@
 [Unit]
 Description=<DESCRIPTION>
-Requires=<SOCKET_NAME.socket>
+Requires=<SOCKET_NAME>.socket
 After=network.target
 
 [Service]
